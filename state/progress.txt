@@ -37,3 +37,5 @@ Updated `docs/architecture.md` with validation/routes paths.
 Verified: `bash scripts/verify.sh` green (17 tests).
 
 Next: Unit 2.3 — Completion (verify green, handoff).
+
+Human: bash scripts/auto-push.sh --branch feat/notes-store
