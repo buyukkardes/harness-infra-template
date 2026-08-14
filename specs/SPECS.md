@@ -15,8 +15,8 @@ TypeScript, Node `http`, Vitest, vanilla `public/` UI. **No harness meta** — u
 
 ### Unit 1.2 — Health endpoint
 
-- [ ] `GET /health` → `{ "status": "ok" }`
-- [ ] Integration test
+- [x] `GET /health` → `{ "status": "ok" }`
+- [x] Integration test
 
 **Verification:** test or curl passes.
 

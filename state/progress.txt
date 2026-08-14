@@ -7,3 +7,12 @@ Verified: `bash scripts/verify.sh` green (npm ci, npm test, npm run build).
 Also committed harness.config.yaml project name/description and full product SPECS.md (replacing placeholder).
 
 Next: Unit 1.2 — Health endpoint (`GET /health` + integration test).
+
+## 2026-08-14 — Unit 1.2 Health endpoint
+
+Added `src/server.ts` with `createServer()` handling `GET /health` → `{ "status": "ok" }`.
+`src/index.ts` starts the server on `PORT` (default 3000).
+Integration test in `tests/health.test.ts` binds ephemeral port and asserts JSON response.
+Verified: `bash scripts/verify.sh` green.
+
+Next: Unit 2.1 — Note model + Map store + store tests.
