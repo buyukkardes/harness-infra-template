@@ -4,10 +4,14 @@ Product: see `specs/SPECS.md`. Update paths here as you implement (pointers only
 
 ```text
 src/
-  index.ts   # Entry — starts HTTP server
-  server.ts  # Node http server + routing
+  index.ts        # Entry — starts HTTP server
+  server.ts       # Node http server + routing
+  notes/
+    types.ts      # Note model
+    store.ts      # In-memory Map store
 tests/
   health.test.ts  # GET /health integration test
+  store.test.ts   # NoteStore unit tests
   smoke.test.ts
 ```
 

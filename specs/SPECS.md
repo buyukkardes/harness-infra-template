@@ -26,7 +26,7 @@ TypeScript, Node `http`, Vitest, vanilla `public/` UI. **No harness meta** — u
 
 ### Unit 2.1 — Model + store
 
-- [ ] `Note { id, title, body, createdAt, updatedAt }`, Map store, store tests
+- [x] `Note { id, title, body, createdAt, updatedAt }`, Map store, store tests
 
 ### Unit 2.2 — HTTP CRUD
 

@@ -16,3 +16,13 @@ Integration test in `tests/health.test.ts` binds ephemeral port and asserts JSON
 Verified: `bash scripts/verify.sh` green.
 
 Next: Unit 2.1 — Note model + Map store + store tests.
+
+## 2026-08-14 — Unit 2.1 Model + store
+
+Added `src/notes/types.ts` with `Note { id, title, body, createdAt, updatedAt }`.
+Added `src/notes/store.ts` — `NoteStore` backed by `Map<string, Note>` with create/get/getAll/update/delete.
+Unit tests in `tests/store.test.ts` (7 cases: CRUD, timestamps, missing id).
+Updated `docs/architecture.md` with notes module paths.
+Verified: `bash scripts/verify.sh` green.
+
+Next: Unit 2.2 — HTTP CRUD (POST/GET/PUT/DELETE `/notes`, validation → 400, API tests).
