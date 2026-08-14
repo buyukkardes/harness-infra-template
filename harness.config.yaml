@@ -1,6 +1,6 @@
 project:
-  name: "__PROJECT_NAME__"
-  description: "__PROJECT_DESCRIPTION__"
+  name: "task-notes-replay"
+  description: "Task Notes API replay via harness-infra-template"
 
 stack:
   profile: node-ts

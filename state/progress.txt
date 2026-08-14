@@ -1,1 +1,9 @@
 # Session handoff log (append only)
+
+## 2026-08-14 — Unit 1.1 Tooling
+
+Confirmed existing bootstrap: `package.json` (test/build/dev), TypeScript strict, Vitest, `tests/smoke.test.ts`.
+Verified: `bash scripts/verify.sh` green (npm ci, npm test, npm run build).
+Also committed harness.config.yaml project name/description and full product SPECS.md (replacing placeholder).
+
+Next: Unit 1.2 — Health endpoint (`GET /health` + integration test).
