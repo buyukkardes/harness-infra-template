@@ -1,0 +1,14 @@
+AGENTS.md
+docs/HARNESS.md
+docs/conventions.md
+docs/architecture.md
+docs/PR-WORKFLOW.md
+docs/ORCHESTRATION.md
+docs/GHA-PR-REVIEW.md
+docs/AUTO-PUSH.md
+specs/SPECS.md
+harness/session-prompt.md
+harness/conflict-agent-prompt.md
+scripts/init.sh
+scripts/verify.sh
+harness.config.yaml

@@ -1,0 +1,14 @@
+project:
+  name: "__PROJECT_NAME__"
+  description: "__PROJECT_DESCRIPTION__"
+
+stack:
+  profile: node-ts
+
+verify:
+  install: "npm ci"
+  test: "npm test"
+  build: "npm run build"
+
+github:
+  default_branch: main

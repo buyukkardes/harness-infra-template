@@ -1,0 +1,44 @@
+# Create a PR when a feat/* branch is pushed and no PR exists yet.
+# Complements scripts/ship-pr.sh (local gh) — useful when push happens without ship-pr.
+name: Open PR
+
+on:
+  push:
+    branches:
+      - "feat/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create PR if missing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          BRANCH="${GITHUB_REF_NAME}"
+          SPEC="tasks/${BRANCH}/SPECS.md"
+
+          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
+            echo "PR already exists for $BRANCH"
+            exit 0
+          fi
+
+          if [[ ! -f "$SPEC" ]]; then
+            echo "No spec archive at $SPEC — skip auto PR (add tasks/<branch>/SPECS.md)"
+            exit 0
+          fi
+
+          TITLE="$(git log -1 --pretty=%s)"
+          if [[ -z "$TITLE" ]]; then
+            TITLE="${BRANCH##feat/}"
+          fi
+
+          BODY="$(sed "s|tasks/feat/<branch-name>/SPECS.md|${SPEC}|g" .github/pull_request_template.md)"
+          gh pr create --base main --head "$BRANCH" --title "$TITLE" --body "$BODY"

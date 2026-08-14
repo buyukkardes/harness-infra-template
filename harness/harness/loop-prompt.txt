@@ -1,0 +1,23 @@
+Harness-lab Ralph iteration. Follow AGENTS.md exactly.
+
+1. Run: bash scripts/init.sh
+2. Read state/blocked.md — if a ## blocker exists below ---, STOP. Log: bash scripts/ralph-log.sh blocked "<unit>" && print RALPH_EXIT=blocked
+3. Read specs/SPECS.md — find Phase 4 section; pick the highest-priority unchecked unit (4.2 → 4.4 first; skip 4.5 until those are done).
+4. Read docs/conventions.md and harness/session-prompt.md steps 4–11 for that ONE unit only.
+5. Before coding: search the codebase — confirm the unit is not already done.
+6. Implement ONLY that unit. Write tests per the spec verification line.
+7. Run: bash scripts/verify.sh — fix until green. If unfixable after 3 attempts: do not commit; bash scripts/ralph-log.sh verify "<unit>" && print RALPH_EXIT=verify
+8. Tick the checkbox in specs/SPECS.md.
+9. Update docs if paths changed (architecture.md pointers only).
+10. Append handoff to state/progress.txt.
+11. Commit with a detailed message (what, why, how verified).
+12. bash scripts/ralph-log.sh done "<unit>" $(git rev-parse --short HEAD)
+13. Print exactly one exit line:
+    - RALPH_EXIT=done — if no unchecked Phase 4 work units remain (4.2–4.4)
+    - RALPH_EXIT=continue — if more Phase 4 work units remain
+    - RALPH_EXIT=blocked — if you wrote state/blocked.md
+    - RALPH_EXIT=verify — if verify failed and you did not commit
+
+If all Phase 4 units including 4.6 are complete, print RALPH_EXIT=done instead of continue.
+
+State your chosen unit and plan before editing files.

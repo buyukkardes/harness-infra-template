@@ -1,0 +1,31 @@
+---
+description: Core harness workflow for __PROJECT_NAME__
+alwaysApply: true
+---
+
+# Harness-lab core rules
+
+Read `AGENTS.md` at session start. It is the router — do not load every doc into context upfront.
+
+## Workflow
+
+1. Run `bash scripts/init.sh` before coding
+2. Work from `specs/SPECS.md` — one logical unit per session
+3. Run `bash scripts/verify.sh` before commit
+4. Blockers → `state/blocked.md`, then stop
+
+## When the agent errs
+
+Update the harness (rules, docs, specs), not only the code. Same mistake twice = missing instruction.
+
+## Docs
+
+Point at file paths; do not duplicate code behavior in markdown.
+
+## Commits
+
+Detailed messages: what changed, why, how verified.
+
+## Research
+
+Use subagents/helpers for exploration only — implementation stays in the main session with full harness context.

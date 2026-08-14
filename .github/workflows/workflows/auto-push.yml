@@ -1,0 +1,65 @@
+# Phase 8.2 — GHA path: verify a remote feat/* branch and ensure PR exists.
+# Trigger after push (local auto-push.sh --gha) or from Cloud Agent git push.
+name: Auto push
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "feat/* branch name (must already exist on origin)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  verify-and-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Verify
+        run: bash scripts/verify.sh
+
+      - name: Open PR if missing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          BRANCH="${{ inputs.branch }}"
+          SPEC="tasks/${BRANCH}/SPECS.md"
+
+          if [[ "$BRANCH" != feat/* ]]; then
+            echo "Branch must match feat/* (got: $BRANCH)"
+            exit 1
+          fi
+
+          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
+            echo "PR already exists for $BRANCH"
+            gh pr view "$BRANCH" --json url --jq .url
+            exit 0
+          fi
+
+          if [[ ! -f "$SPEC" ]]; then
+            echo "No spec archive at $SPEC — cannot open PR"
+            exit 1
+          fi
+
+          TITLE="$(git log -1 --pretty=%s)"
+          if [[ -z "$TITLE" ]]; then
+            TITLE="${BRANCH##feat/}"
+          fi
+
+          BODY="$(sed "s|tasks/feat/<branch-name>/SPECS.md|${SPEC}|g" .github/pull_request_template.md)"
+          gh pr create --base main --head "$BRANCH" --title "$TITLE" --body "$BODY"

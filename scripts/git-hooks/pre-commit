@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Pre-commit guardrail: run full project verification before each commit.
+# Blocks the commit when scripts/verify.sh exits non-zero.
+# Bypass (emergency only): git commit --no-verify
+
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+bash scripts/verify.sh
