@@ -1,4 +1,6 @@
 AGENTS.md
+docs/SETUP.md                 ← **read first after clone**
+docs/GETTING-STARTED.md
 docs/HARNESS.md
 docs/conventions.md
 docs/architecture.md
@@ -6,9 +8,20 @@ docs/PR-WORKFLOW.md
 docs/ORCHESTRATION.md
 docs/GHA-PR-REVIEW.md
 docs/AUTO-PUSH.md
+docs/llms.txt
 specs/SPECS.md
 harness/session-prompt.md
+harness/orchestrator-prompt.md
 harness/conflict-agent-prompt.md
+harness/review-fix-prompt.md
+harness/reviewer-pr-prompt.md
+harness/reviewer-docs-prompt.md
+harness/entropy-prompt.md
+harness/ralph-loop-prompt.md
+harness/loop-prompt.txt
+harness/e2e-auto-push-prompt.md
+scripts/setup-project.sh        ← run after clone
 scripts/init.sh
 scripts/verify.sh
 harness.config.yaml
+package.json                    ← change name with setup-project.sh

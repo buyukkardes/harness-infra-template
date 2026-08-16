@@ -2,7 +2,7 @@
 
 **Source of truth:** `specs/SPECS.md` — this board is a **view only** (Tip 29). Do not duplicate spec text here.
 
-**GitHub:** [Open PRs](https://github.com/buyukkardes/__PROJECT_NAME__/pulls) · [Actions CI](https://github.com/buyukkardes/__PROJECT_NAME__/actions)
+**GitHub:** [Open PRs](https://github.com/YOUR_USER/__PROJECT_NAME__/pulls) · [Actions CI](https://github.com/YOUR_USER/__PROJECT_NAME__/actions) — replace `YOUR_USER` after clone
 
 ---
 

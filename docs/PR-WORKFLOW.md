@@ -2,7 +2,7 @@
 
 Sequential PR mode for __PROJECT_NAME__ (Phase 5+). One branch, one PR, automated review after CI, **human merge**.
 
-**Remote:** `git@github.com:buyukkardes/__PROJECT_NAME__.git`  
+**Remote:** `git@github.com:YOUR_USER/__PROJECT_NAME__.git` (set after clone — see `docs/SETUP.md`)  
 **CI:** `.github/workflows/ci.yml` — jobs `verify` + `pr-review` (Phase 6 Path C)
 
 ---

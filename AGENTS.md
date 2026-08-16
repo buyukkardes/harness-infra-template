@@ -1,10 +1,12 @@
 # AGENTS.md — agent router
 
+**New clone?** Read **`docs/SETUP.md`** first, then run `bash scripts/setup-project.sh <name> "<description>"`.
+
 **Read first:** `docs/llms.txt`
 
 ## Project
 
-Configured in `harness.config.yaml`. Product work: `specs/SPECS.md` (your spec, not harness meta).
+Configured in `harness.config.yaml` and `package.json`. Product work: `specs/SPECS.md` (your spec, not harness meta).
 
 ## Session protocol
 

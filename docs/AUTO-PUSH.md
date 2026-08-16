@@ -2,7 +2,7 @@
 
 Replace manual `git push` in the terminal with an **agent-run script** or **GHA follow-up**. PR creation reuses `open-pr.yml`, `gh pr create`, or `auto-push.yml`.
 
-**Remote:** personal GitHub `buyukkardes/__PROJECT_NAME__`  
+**Remote:** your GitHub repo `YOUR_USER/__PROJECT_NAME__` (see `docs/SETUP.md` step 4)  
 **Account split:** Company Cursor local sandbox may block push — see fallbacks below.
 
 ---

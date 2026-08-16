@@ -1,4 +1,4 @@
-Harness-lab Ralph iteration. Follow AGENTS.md exactly.
+__PROJECT_NAME__ Ralph iteration. Follow AGENTS.md exactly.
 
 1. Run: bash scripts/init.sh
 2. Read state/blocked.md — if a ## blocker exists below ---, STOP. Log: bash scripts/ralph-log.sh blocked "<unit>" && print RALPH_EXIT=blocked

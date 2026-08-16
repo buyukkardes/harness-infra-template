@@ -1,8 +1,8 @@
 {
-  "name": "harness-lab",
+  "name": "my-project",
   "version": "0.1.0",
   "private": true,
-  "description": "Harness engineering learning lab — Task Notes API",
+  "description": "__PROJECT_DESCRIPTION__ — run scripts/setup-project.sh after clone",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
