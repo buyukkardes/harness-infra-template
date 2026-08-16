@@ -1,4 +1,7 @@
 AGENTS.md
+docs/HARNESS.md
+docs/harness-template-architecture.svg   ← components + user I/O
+docs/harness-template-workflow.svg       ← setup + build loop
 docs/SETUP.md                 ← **read first after clone**
 docs/GETTING-STARTED.md
 docs/HARNESS.md

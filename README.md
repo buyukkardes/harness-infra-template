@@ -46,6 +46,8 @@ Common mistake from replay: only editing `harness.config.yaml` and forgetting **
 
 Details: [docs/HARNESS.md](docs/HARNESS.md).
 
+**Architecture diagrams:** [docs/harness-template-architecture.svg](docs/harness-template-architecture.svg) (components + I/O) · [docs/harness-template-workflow.svg](docs/harness-template-workflow.svg) (setup + build loop)
+
 ---
 
 ## Stack default

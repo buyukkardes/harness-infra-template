@@ -113,6 +113,8 @@ See `docs/GETTING-STARTED.md`, `docs/PR-WORKFLOW.md`.
 
 | I need… | Read |
 |--------|------|
+| Architecture (I/O diagram) | `docs/harness-template-architecture.svg` |
+| Workflow (setup + loop) | `docs/harness-template-workflow.svg` |
 | Agent entry | `AGENTS.md` |
 | File index | `docs/llms.txt` |
 | Harness vs product | `docs/HARNESS.md` |
