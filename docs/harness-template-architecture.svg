@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 980" role="img" aria-labelledby="title desc">
+  <title id="title">harness-infra-template architecture - user inputs, harness included, user responsibilities</title>
+  <desc id="desc">Component view for template adopters: what you bring, what the repo includes, what you own as output and ongoing responsibility. Manual workflow today; full automation deferred.</desc>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <marker id="arr-in" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#059669"/>
+    </marker>
+    <style>
+      .title { font: 700 22px system-ui, sans-serif; fill: #0f172a; }
+      .subtitle { font: 13px system-ui, sans-serif; fill: #64748b; }
+      .zone-title { font: 700 13px system-ui, sans-serif; fill: #1e293b; }
+      .box-title { font: 700 11px system-ui, sans-serif; fill: #0f172a; }
+      .box-text { font: 10px system-ui, sans-serif; fill: #334155; }
+      .small { font: 9px system-ui, sans-serif; fill: #64748b; }
+      .io-in { font: 700 9px system-ui, sans-serif; fill: #059669; }
+      .io-out { font: 700 9px system-ui, sans-serif; fill: #dc2626; }
+      .tag { font: 700 9px system-ui, sans-serif; fill: #fff; }
+      .legend { font: 10px system-ui, sans-serif; fill: #475569; }
+      .user-tag { font: 700 9px system-ui, sans-serif; fill: #92400e; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="980" fill="#f8fafc"/>
+
+  <text x="32" y="36" class="title">harness-infra-template architecture</text>
+  <text x="32" y="56" class="subtitle">What you bring (IN) - what the template includes - what you own (OUT + responsibility) - manual agents today</text>
+
+  <rect x="32" y="72" width="1036" height="118" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <rect x="48" y="84" width="72" height="22" rx="4" fill="#059669"/>
+  <text x="84" y="99" text-anchor="middle" class="tag">YOU IN</text>
+  <text x="130" y="99" class="zone-title">User inputs - required before building</text>
+
+  <rect x="48" y="108" width="188" height="68" rx="6" fill="#fff" stroke="#059669"/>
+  <text x="56" y="124" class="box-title">1. Project identity</text>
+  <text x="56" y="138" class="box-text">setup-project.sh name desc</text>
+  <text x="56" y="152" class="box-text">harness.config.yaml</text>
+  <text x="56" y="166" class="small">package.json + lock name</text>
+
+  <rect x="248" y="108" width="188" height="68" rx="6" fill="#fff" stroke="#059669"/>
+  <text x="256" y="124" class="box-title">2. Product spec</text>
+  <text x="256" y="138" class="box-text">External SPECS.md</text>
+  <text x="256" y="152" class="box-text">copy to specs/SPECS.md</text>
+  <text x="256" y="166" class="small">e.g. task-notes-spec repo</text>
+
+  <rect x="448" y="108" width="188" height="68" rx="6" fill="#fff" stroke="#059669"/>
+  <text x="456" y="124" class="box-title">3. GitHub repo</text>
+  <text x="456" y="138" class="box-text">Empty repo + remote origin</text>
+  <text x="456" y="152" class="box-text">gh auth / SSH keys</text>
+  <text x="456" y="166" class="small">Not harness-infra-template URL</text>
+
+  <rect x="648" y="108" width="188" height="68" rx="6" fill="#fff" stroke="#059669"/>
+  <text x="656" y="124" class="box-title">4. Agent sessions</text>
+  <text x="656" y="138" class="box-text">Cursor (or IDE) + fresh chats</text>
+  <text x="656" y="152" class="box-text">Paste harness/session-prompt.md</text>
+  <text x="656" y="166" class="small">One logical unit per chat</text>
+
+  <rect x="848" y="108" width="204" height="68" rx="6" fill="#fff" stroke="#059669"/>
+  <text x="856" y="124" class="box-title">5. Product decisions</text>
+  <text x="856" y="138" class="box-text">Stack tweaks (optional)</text>
+  <text x="856" y="152" class="box-text">Domain logic in src/tests</text>
+  <text x="856" y="166" class="small">Harness wired for Node+TS</text>
+
+  <line x1="550" y1="190" x2="550" y2="218" stroke="#059669" stroke-width="1.5" marker-end="url(#arr-in)"/>
+
+  <rect x="32" y="218" width="1036" height="400" rx="12" fill="#ffffff" stroke="#6366f1" stroke-width="2"/>
+  <rect x="48" y="230" width="120" height="22" rx="4" fill="#6366f1"/>
+  <text x="108" y="245" text-anchor="middle" class="tag">INCLUDED</text>
+  <text x="178" y="245" class="zone-title">Harness framework (ships with template - do not rebuild)</text>
+
+  <rect x="48" y="262" width="240" height="340" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="60" y="282" class="box-title">Control plane</text>
+  <rect x="60" y="292" width="216" height="48" rx="6" fill="#fff" stroke="#64748b"/>
+  <text x="68" y="308" class="box-text">AGENTS.md - session router</text>
+  <text x="68" y="322" class="box-text">docs/SETUP.md, llms.txt</text>
+  <text x="68" y="336" class="small">.cursor/rules/</text>
+  <rect x="60" y="348" width="216" height="48" rx="6" fill="#fff" stroke="#64748b"/>
+  <text x="68" y="364" class="box-text">specs/SPECS.md - work queue</text>
+  <text x="68" y="378" class="box-text">(your copied product spec)</text>
+  <text x="68" y="392" class="small">Unchecked unit = next job</text>
+  <rect x="60" y="404" width="216" height="64" rx="6" fill="#fff" stroke="#64748b"/>
+  <text x="68" y="420" class="box-text">state/progress.txt - handoffs</text>
+  <text x="68" y="434" class="box-text">state/blocked.md - stop signal</text>
+  <text x="68" y="448" class="box-text">learnings.md, tech-debt.md</text>
+  <text x="68" y="462" class="small">Append-only log</text>
+  <rect x="60" y="476" width="216" height="40" rx="6" fill="#fff" stroke="#64748b"/>
+  <text x="68" y="492" class="box-text">tasks/&lt;branch&gt;/SPECS.md</text>
+  <text x="68" y="506" class="small">PR archive for C1 review</text>
+  <rect x="60" y="524" width="216" height="64" rx="6" fill="#fff" stroke="#64748b"/>
+  <text x="68" y="540" class="box-text">docs/ - PR-WORKFLOW, ORCHESTRATION</text>
+  <text x="68" y="554" class="box-text">HARNESS.md, conventions</text>
+  <text x="68" y="568" class="small">Harness meta - not in product spec</text>
+  <text x="60" y="592" class="io-in">IN: your spec units</text>
+  <text x="60" y="606" class="io-out">OUT: ticks, handoffs</text>
+
+  <rect x="304" y="262" width="248" height="340" rx="8" fill="#eef2ff" stroke="#6366f1"/>
+  <text x="316" y="282" class="box-title">Execution (scripts/)</text>
+  <rect x="316" y="292" width="224" height="40" rx="6" fill="#fff" stroke="#6366f1"/>
+  <text x="324" y="308" class="box-text">setup-project.sh - first-time identity</text>
+  <text x="324" y="322" class="small">See docs/SETUP.md</text>
+  <rect x="316" y="340" width="224" height="40" rx="6" fill="#fff" stroke="#6366f1"/>
+  <text x="324" y="356" class="box-text">init.sh - session bootstrap</text>
+  <text x="324" y="370" class="small">Shows unchecked units</text>
+  <rect x="316" y="388" width="224" height="40" rx="6" fill="#fff" stroke="#6366f1"/>
+  <text x="324" y="404" class="box-text">verify.sh - quality gate</text>
+  <text x="324" y="418" class="small">npm ci, test, build + pre-commit</text>
+  <rect x="316" y="436" width="224" height="40" rx="6" fill="#fff" stroke="#6366f1"/>
+  <text x="324" y="452" class="box-text">auto-push.sh - ship feat/*</text>
+  <text x="324" y="466" class="small">--branch, --dry-run</text>
+  <rect x="316" y="484" width="224" height="40" rx="6" fill="#fff" stroke="#818cf8" stroke-dasharray="4 2"/>
+  <text x="324" y="500" class="box-text">rebase-parallel-pr.sh</text>
+  <text x="324" y="514" class="small">orchestrate-kickoff.sh</text>
+  <rect x="316" y="532" width="224" height="40" rx="6" fill="#fff" stroke="#818cf8" stroke-dasharray="4 2"/>
+  <text x="324" y="548" class="box-text">gha-pr-review.sh (via GHA)</text>
+  <text x="324" y="562" class="small">C1 checklist on PR</text>
+  <text x="316" y="588" class="io-in">IN: clean tree, branch</text>
+  <text x="316" y="602" class="io-out">OUT: exit codes, PR URL</text>
+
+  <rect x="568" y="262" width="248" height="340" rx="8" fill="#faf5ff" stroke="#a855f7"/>
+  <text x="580" y="282" class="box-title">Prompt library (harness/)</text>
+  <text x="580" y="298" class="small">Copy into fresh chats - manual today</text>
+  <rect x="580" y="306" width="224" height="32" rx="6" fill="#fff" stroke="#a855f7"/>
+  <text x="588" y="326" class="box-text">session-prompt.md - implement 1 unit</text>
+  <rect x="580" y="344" width="224" height="32" rx="6" fill="#fff" stroke="#a855f7"/>
+  <text x="588" y="364" class="box-text">orchestrator-prompt.md - 2 workers</text>
+  <rect x="580" y="382" width="224" height="32" rx="6" fill="#fff" stroke="#a855f7"/>
+  <text x="588" y="402" class="box-text">conflict-agent-prompt.md</text>
+  <rect x="580" y="420" width="224" height="32" rx="6" fill="#fff" stroke="#a855f7"/>
+  <text x="588" y="440" class="box-text">review-fix-prompt.md</text>
+  <rect x="580" y="458" width="224" height="32" rx="6" fill="#fff" stroke="#c4b5fd" stroke-dasharray="4 2"/>
+  <text x="588" y="478" class="box-text">reviewer-pr / entropy / ralph-loop</text>
+  <text x="580" y="510" class="io-in">IN: AGENTS + spec unit</text>
+  <text x="580" y="524" class="io-out">OUT: commits (no merge)</text>
+  <rect x="580" y="536" width="224" height="52" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="588" y="554" class="user-tag">USER ACTION</text>
+  <text x="588" y="568" class="box-text">Open chat, paste prompt,</text>
+  <text x="588" y="582" class="box-text">supervise agent output</text>
+
+  <rect x="832" y="262" width="220" height="164" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="844" y="282" class="box-title">Your product (you build)</text>
+  <text x="844" y="298" class="small">Empty at clone - driven by spec</text>
+  <rect x="844" y="306" width="196" height="52" rx="6" fill="#fff" stroke="#ea580c"/>
+  <text x="852" y="322" class="box-text">src/ - application code</text>
+  <text x="852" y="336" class="box-text">tests/ - Vitest contracts</text>
+  <text x="852" y="350" class="small">public/ - UI if spec says so</text>
+  <text x="844" y="378" class="io-in">IN: unit requirements</text>
+  <text x="844" y="392" class="io-out">OUT: passing verify</text>
+  <text x="844" y="414" class="small">Agent writes; you review merges</text>
+
+  <rect x="832" y="438" width="220" height="164" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="844" y="458" class="box-title">GitHub + Actions (included)</text>
+  <rect x="844" y="466" width="196" height="52" rx="6" fill="#fff" stroke="#16a34a"/>
+  <text x="852" y="482" class="box-text">.github/workflows/ci.yml</text>
+  <text x="852" y="496" class="box-text">open-pr.yml, auto-push.yml</text>
+  <text x="852" y="510" class="small">verify + pr-review jobs</text>
+  <text x="844" y="534" class="io-in">IN: push / PR event</text>
+  <text x="844" y="548" class="io-out">OUT: checks, review comment</text>
+  <text x="844" y="570" class="small">Needs your repo + push</text>
+  <text x="844" y="584" class="small">Triggers after auto-push</text>
+
+  <line x1="288" y1="400" x2="304" y2="400" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="552" y1="380" x2="568" y2="380" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="540" y1="500" x2="832" y2="340" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="540" y1="460" x2="832" y2="500" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="32" y="636" width="1036" height="148" rx="10" fill="#fff1f2" stroke="#dc2626" stroke-width="2"/>
+  <rect x="48" y="648" width="88" height="22" rx="4" fill="#dc2626"/>
+  <text x="92" y="663" text-anchor="middle" class="tag">YOU OUT</text>
+  <text x="146" y="663" class="zone-title">User outputs and ongoing responsibilities</text>
+
+  <rect x="48" y="678" width="230" height="92" rx="6" fill="#fff" stroke="#dc2626"/>
+  <text x="56" y="696" class="box-title">Artifacts you produce</text>
+  <text x="56" y="712" class="box-text">- Product code in src/tests/public</text>
+  <text x="56" y="726" class="box-text">- Green verify + CI on main/feat/*</text>
+  <text x="56" y="740" class="box-text">- Merged PRs, working application</text>
+  <text x="56" y="754" class="box-text">- state/progress.txt handoff trail</text>
+  <text x="56" y="768" class="small">tasks/ archives per feat branch</text>
+
+  <rect x="292" y="678" width="230" height="92" rx="6" fill="#fff" stroke="#d97706"/>
+  <text x="300" y="696" class="box-title">Human-only gates (never automated)</text>
+  <text x="300" y="712" class="box-text">- Merge PR on GitHub</text>
+  <text x="300" y="726" class="box-text">- Read C1 review before merge</text>
+  <text x="300" y="740" class="box-text">- Clear state/blocked.md</text>
+  <text x="300" y="754" class="box-text">- auto-push.sh fallback if blocked</text>
+  <text x="300" y="768" class="small">gh auth on your machine</text>
+
+  <rect x="536" y="678" width="230" height="92" rx="6" fill="#fff" stroke="#d97706"/>
+  <text x="544" y="696" class="box-title">Operational ownership</text>
+  <text x="544" y="712" class="box-text">- GitHub repo + branch policy</text>
+  <text x="544" y="726" class="box-text">- Secrets (optional LLM_API_KEY)</text>
+  <text x="544" y="740" class="box-text">- Account split: Cursor vs GitHub</text>
+  <text x="544" y="754" class="box-text">- Product spec quality and scope</text>
+  <text x="544" y="768" class="small">Keep harness meta out of product spec</text>
+
+  <rect x="780" y="678" width="272" height="92" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="5 3"/>
+  <text x="788" y="696" class="box-title">Deferred (not in template v1)</text>
+  <text x="788" y="712" class="box-text">- SDK / Cloud agent batch loops</text>
+  <text x="788" y="726" class="box-text">- Auto-merge, worktrees, MCP review</text>
+  <text x="788" y="740" class="box-text">- Cursor Automations on company account</text>
+  <text x="788" y="754" class="box-text">Update this diagram when automated</text>
+  <text x="788" y="768" class="small">See harness-lab for reference</text>
+
+  <rect x="32" y="800" width="1036" height="56" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="48" y="822" class="box-title">Harness vs product boundary</text>
+  <text x="48" y="840" class="box-text">Template ships harness (prompts, scripts, CI, docs). You supply product spec + identity + repo. Agent implements product; you merge and own outcomes.</text>
+  <text x="48" y="854" class="small">Do not add PR-pipeline / conflict-agent / orchestrator units to specs/SPECS.md - those live in this repo already.</text>
+
+  <rect x="32" y="872" width="1036" height="36" rx="6" fill="#fff" stroke="#e2e8f0"/>
+  <text x="48" y="894" class="io-in">YOU IN</text>
+  <text x="88" y="894" class="legend">= what you bring at setup and each session</text>
+  <text x="340" y="894" class="tag" fill="#6366f1">INCLUDED</text>
+  <text x="410" y="894" class="legend">= ships with clone; configure, do not rebuild</text>
+  <text x="680" y="894" class="io-out">YOU OUT</text>
+  <text x="730" y="894" class="legend">= artifacts + human gates you own</text>
+  <text x="920" y="894" class="legend">Pair: harness-template-workflow.svg</text>
+
+</svg>
